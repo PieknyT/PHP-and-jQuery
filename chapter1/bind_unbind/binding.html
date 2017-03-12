@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Binding elements</title>
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+        <style type="text/css">
+            ul {background-color: #dcdcdc; list-style: none; margin: 0pt; padding: 0pt; width: 250px;}
+            li {cursor: pointer; margin: 10px 0px;}
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>Indie</li>
+            <li>FRancja</li>
+            <li>USA</li>
+            <li>UK</li>
+        </ul>
+        <select>
+            <option value="Africa">Africa</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Asia">Asia</option>
+            <option value="Australia">Australia</option>
+            <option value="Europe">Europe</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+       </select>
+    <input type="button" value="Delete binding with selector area">
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input:text').bind(
+                {
+                    focus: function () {
+                        $(this).val('');
+                    },
+                    blur: function () {
+                        $(this).val('Enter the text');
+                    }
+                }
+            );
+            $('li').bind('click', function () {
+                $(this).css('background-color', 'red');
+            });
+        });
+
+    </script>
+
+
+    </body>
+</html>
