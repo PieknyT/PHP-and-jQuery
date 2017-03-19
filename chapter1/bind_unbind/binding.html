@@ -9,9 +9,10 @@
         </style>
     </head>
     <body>
+        <input type="text" value="Mickey">
         <ul>
             <li>Indie</li>
-            <li>FRancja</li>
+            <li>Francja</li>
             <li>USA</li>
             <li>UK</li>
         </ul>
@@ -25,25 +26,45 @@
             <option value="South America">South America</option>
        </select>
     <input type="button" value="Delete binding with selector area">
-    <script type="text/javascript" src="./jquery.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('input:text').bind(
-                {
-                    focus: function () {
-                        $(this).val('');
-                    },
-                    blur: function () {
-                        $(this).val('Enter the text');
-                    }
-                }
-            );
-            $('li').bind('click', function () {
-                $(this).css('background-color', 'red');
-            });
-        });
 
-    </script>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('input:text').bind(
+                    {
+                        focus: function () {
+                            $(this).val('');
+                        },
+                        blur: function () {
+                            $(this).val('Enter the text');
+                        }
+                    }
+                );
+
+                // the same differently
+//                $('input:text').focus(function () {
+//                    $(this).val('');
+//                });
+//                $('input:text').blur(function () {
+//                    $(this).val('Enter the text');
+//                });
+
+                $('li').bind('click', function () {
+                    $(this).css('background-color', 'red');
+                });
+                $('select').bind('change', function () {
+                    alert('Selected value: '+$(this).val());
+                });
+//                $('input:button').bind('click', function () {
+//                    $('select').unbind('change');
+//                });
+
+                   //shorter version unbint all bind in  li element
+                $('input:button').click(function () {
+                    $('li').unbind();
+                })
+            });
+        </script>
 
 
     </body>
