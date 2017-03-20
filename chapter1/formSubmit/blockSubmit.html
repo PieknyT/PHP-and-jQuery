@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+      <title>Block submit from HTML</title>
+    </head>
+    <body>
+        <form id="myForm">
+            First name: <input type="text" name="fname"><br></br>
+            Last name: <input type="text" name="lname"><br></br>
+            <button type="submit" value="Send form">Send form</button>
+            <button type="reset" value="Reset">Reset</button>
+        </form>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#myForm').submit(function () {
+                    //use: check form is it correct true - send, false - block send
+                      return false;
+                });
+            });
+        </script>
+    </body>
+</html>

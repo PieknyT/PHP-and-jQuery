@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <title>Send form</title>
+    </head>
+    <body>
+        <form id="myForm">
+            First name: <input type="text" name="fname"><br></br>
+            Last name: <input type="text" name="lname"><br></br>
+            <input type="button" value="Send form" />
+            <button type="reset" value="Reset">Reset</button>
+        </form>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('input:button').click(function () {
+                    $('#myForm').submit();
+                });
+            });
+        </script>
+    </body>
+</html>
