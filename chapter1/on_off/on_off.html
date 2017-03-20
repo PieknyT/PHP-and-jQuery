@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add events to elements</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <style type="text/css">
+            div{ border: 1px solid black; cursor: pointer; width: 200px; margin:10px; }
+        </style>
+    </head>
+    <body>
+        <input type="button" id="button1" value="Create new element"/>
+        <input type="button" id="button2" value="Remove event handlers from div"/>
+        <div class="future">I'm already on the website</div>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#button1').click(function () {
+                   $('body').append('<div class="future">I new there!</div>');
+                });
+                $('body').on('click', 'div', function () {
+                    $(this).css({'color':'red', 'font-weight':'bold'}).html('Somebody click me?');
+                });
+                $('#button2').click(function () {
+                    $('body').off('click', 'div');
+                });
+            });
+        </script>
+    </body>
+</html>
