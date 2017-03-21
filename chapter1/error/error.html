@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+      <title>Control of missing images</title>
+       <style type="text/css">
+           div{
+                   border:1px solid black;
+                   float: left;
+               }
+           img{
+               width: 180px;;
+               height: 200px;
+               margin: 10px;
+           }
+        </style>
+    </head>
+    <body>
+        <div id="imageContainer"></div>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var images = ['cavani.jpg', 'lewandowski.jpg',  'milik.jpg', 'missing.png', 'ImageNotExist.jpg', "faultImage.jpg"];
+                var html = '';
+                $.each(images, function (key, value) {
+                    html += '<img src="img/' + value + '" />';
+                });
+                $('#imageContainer').html(html);
+
+                $('img').error(
+                    $(this).replaceWith('<img src="missing.png" alt="Can not load image">'));
+
+            });
+        </script>
+    </body>
+</html>
